@@ -1,11 +1,11 @@
 "use client";
 import React, { useState, useEffect } from "react";
 
-const Intro = () => {
+export default function MainHeroSection() {
   return (
     <div className="bg-gray-600 p-8 max-w-sm rounded-lg shadow-2xl">
       <div className="text-white">
-        <h2 className="text-lg font-semibold mb-6 font-['Geist_Mono']">
+        <h2 className="text-[px] font-semibold mb-6 font-['Geist_Mono']">
           Kepler22bee Studios
         </h2>
 

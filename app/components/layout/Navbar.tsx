@@ -1,6 +1,6 @@
 export default function Navbar() {
   return (
-    <nav className="fixed top-0 w-full bg-gray-800 p-4 z-50">
+    <nav className="fixed top-0 w-full bg-black p-4 z-50">
       <div className="container mx-auto flex justify-between items-center font-['Geist_Mono']">
         <a href="/" className="text-white text-lg font-bold">
           Kepler22bee

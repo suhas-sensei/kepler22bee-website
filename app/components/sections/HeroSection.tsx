@@ -1,18 +1,8 @@
 "use client";
-import { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+import Intro from "../layout/Intro";
 
-// Dummy Intro component (replace with actual import if it exists elsewhere)
-function Intro() {
-  return (
-    <div className="bg-white/90 rounded-lg shadow-lg p-6 text-black max-w-xs">
-      <h3 className="text-xl font-bold mb-2">Welcome!</h3>
-      <p className="text-sm">
-        Discover our work and vision as you scroll. Let’s create something
-        amazing together!
-      </p>
-    </div>
-  );
-}
+
 
 export default function MainHeroSection() {
   const [scrollY, setScrollY] = useState(0);
@@ -22,9 +12,7 @@ export default function MainHeroSection() {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       setScrollY(currentScrollY);
-
-      // Show intro component after scrolling 200px
-      setShowIntro(currentScrollY > 10);
+      setShowIntro(currentScrollY > 200);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -35,24 +23,35 @@ export default function MainHeroSection() {
     <section className="relative min-h-screen w-full overflow-hidden">
       {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-top bg-no-repeat bg-fixed"
         style={{
-          backgroundImage: "url('bg.png')",
-          transform: `translateY(${scrollY * 0.5}px)`, // Parallax effect
+          backgroundImage: "url('hero1.png')",
+          backgroundSize: "100% auto",
         }}
       >
         {/* Subtle overlay */}
-        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="absolute inset-0 bg-black/30"></div>
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 h-screen flex items-center justify-center">
+      <div className="relative z-10 min-h-screen flex items-center justify-center pt-12">
         <div className="text-center text-white">
-          <h1 className="text-6xl lg:text-8xl font-bold mb-8 font-['Geist_Mono']">
+          <h1
+            className="text-6xl lg:text-8xl font-bold mb-8 font-['Geist_Mono'] transition-all duration-500"
+            style={{
+              opacity: Math.max(0, 1 - scrollY / 300),
+              transform: `translateY(${Math.min(scrollY / 4, 50)}px)`,
+            }}
+          >
             Kepler22bee
           </h1>
-          <p className="text-xl lg:text-2xl text-gray-200">
-            Architectural Visualization Studio
+          <p
+            className="text-xl lg:text-2xl text-gray-200 transition-opacity duration-500"
+            style={{
+              opacity: Math.max(0, 1 - scrollY / 350),
+            }}
+          >
+            Fully On-chain Gaming Studio
           </p>
         </div>
       </div>
@@ -87,26 +86,30 @@ export default function MainHeroSection() {
         </div>
       </div>
 
-      {/* Extended content to enable scrolling */}
       <div className="relative z-10 bg-gradient-to-b from-transparent to-gray-900 min-h-screen">
-        <div className="container mx-auto px-6 py-20">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+        <style jsx>{`
+          @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+          }
+        `}</style>
+        <div 
+          className="container mx-auto px-6 py-20 ml-[10%]"
+          style={{
+            opacity: Math.min(1, (scrollY - 300) / 300),
+            position: scrollY > 600 ? 'fixed' : 'relative',
+            top: scrollY > 600 ? '50%' : 'auto',
+            transform: scrollY > 600 ? 'translateY(-50%)' : 'none',
+            animation: 'fadeIn 0.5s ease-in-out'
+          }}
+        >
+          <div className="grid md:grid-cols-2 gap-12 items-row">
             <div className="text-white">
               <h2 className="text-4xl font-bold mb-6 font-['Geist_Mono']">
-                Our Vision
+          Our Stack
               </h2>
               <p className="text-lg text-gray-300 leading-relaxed">
-                Creating immersive architectural experiences through
-                cutting-edge 3D visualization and virtual reality technologies.
-              </p>
-            </div>
-            <div className="text-white">
-              <h2 className="text-4xl font-bold mb-6 font-['Geist_Mono']">
-                Our Process
-              </h2>
-              <p className="text-lg text-gray-300 leading-relaxed">
-                From concept to completion, we transform architectural designs
-                into photorealistic visualizations that bring spaces to life.
+          Creating immersive Gaming experiences with a focus on decentralization and community-driven development.
               </p>
             </div>
           </div>
