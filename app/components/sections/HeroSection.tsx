@@ -106,7 +106,44 @@ export default function MainHeroSection() {
             zIndex: 5,
           }}
         />
-
+        <div
+          className="fixed inset-0 bg-black/70 transition-opacity duration-1000"
+          style={{
+            opacity: Math.min(1, (scrollY - 900) / 300),
+            pointerEvents: scrollY > 900 ? "auto" : "none",
+            zIndex: 6,
+          }}
+        >
+          <div 
+            className="container mx-auto px-6 py-20 text-white"
+            style={{
+              transform: `translateY(${Math.max(0, 2000 - scrollY)}px)`,
+              transition: "transform 0.5s ease-out",
+            }}
+          >
+            <div className="credits-container">
+              <h2 className="text-4xl font-bold mb-12 text-center font-['Geist_Mono']">Credits</h2>
+              
+              <div className="mb-16">
+                <h3 className="text-2xl font-bold mb-4">Development Team</h3>
+                <p className="text-xl mb-2">Lead Developer - John Doe</p>
+                <p className="text-xl mb-2">Game Design - Jane Smith</p>
+                <p className="text-xl mb-2">Blockchain Engineer - Alex Johnson</p>
+              </div>
+              
+              <div className="mb-16">
+                <h3 className="text-2xl font-bold mb-4">Art & Design</h3>
+                <p className="text-xl mb-2">Art Director - Emily Chen</p>
+                <p className="text-xl mb-2">UI/UX Designer - Michael Brown</p>
+              </div>
+              
+              <div className="text-center mt-24">
+                <p className="text-2xl font-bold">Kepler22bee</p>
+                <p className="text-xl">© 2023 All Rights Reserved</p>
+              </div>
+            </div>
+          </div>
+        </div>
         <div
           className="container mx-auto px-6 py-20 ml-[10%]"
           style={{
