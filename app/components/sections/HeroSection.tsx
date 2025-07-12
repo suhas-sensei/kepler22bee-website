@@ -2,8 +2,6 @@
 import React, { useState, useEffect } from "react";
 import Intro from "../layout/Intro";
 
-
-
 export default function MainHeroSection() {
   const [scrollY, setScrollY] = useState(0);
   const [showIntro, setShowIntro] = useState(false);
@@ -58,8 +56,8 @@ export default function MainHeroSection() {
 
       {/* Floating Intro Component */}
       <div
-        className={`fixed top-1/2 right-8 transform -translate-y-1/2 z-20 transition-all duration-700 ease-out ${
-          showIntro
+        className={`fixed top-1/2 right-8 transform -translate-y-1/2 z-20 transition-all duration-2000 ease-out ${
+          showIntro && scrollY < 900
             ? "opacity-100 translate-x-0"
             : "opacity-0 translate-x-full pointer-events-none"
         }`}
@@ -89,39 +87,50 @@ export default function MainHeroSection() {
       <div className="relative z-10 bg-gradient-to-b from-transparent to-gray-900 min-h-screen">
         <style jsx>{`
           @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+              opacity: 0;
+            }
+            to {
+              opacity: 1;
+            }
           }
         `}</style>
-        <div className="fixed inset-0 bg-black transition-opacity duration-1000"
+        <div
+          className="fixed inset-0 transition-opacity duration-1000"
           style={{
+            backgroundImage: `url('/banner.png')`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
             opacity: Math.min(1, (scrollY - 600) / 300),
-            pointerEvents: scrollY > 600 ? 'auto' : 'none',
-            zIndex: 5
+            pointerEvents: scrollY > 600 ? "auto" : "none",
+            zIndex: 5,
           }}
         />
-        <div 
+
+        <div
           className="container mx-auto px-6 py-20 ml-[10%]"
           style={{
             opacity: Math.min(1, (scrollY - 300) / 300),
-            position: scrollY > 600 ? 'fixed' : 'relative',
-            top: scrollY > 600 ? '50%' : 'auto',
-            transform: scrollY > 600 ? 'translateY(-50%)' : 'none',
-            animation: 'fadeIn 0.5s ease-in-out'
+            position: scrollY > 600 ? "fixed" : "relative",
+            top: scrollY > 600 ? "50%" : "auto",
+            transform: scrollY > 600 ? "translateY(-50%)" : "none",
+            animation: "fadeIn 0.5s ease-in-out",
           }}
         >
           <div className="grid md:grid-cols-2 gap-12 items-row">
             <div className="text-white">
               <h2 className="text-4xl font-bold mb-6 font-['Geist_Mono']">
-          Our Stack
+                Our Stack
               </h2>
               <p className="text-lg text-gray-300 leading-relaxed">
-          Creating immersive Gaming experiences with a focus on decentralization and community-driven development.
+                Creating immersive Gaming experiences with a focus on
+                decentralization and community-driven development.
               </p>
             </div>
           </div>
         </div>
       </div>
     </section>
+
   );
 }
