@@ -93,6 +93,13 @@ export default function MainHeroSection() {
             to { opacity: 1; }
           }
         `}</style>
+        <div className="fixed inset-0 bg-black transition-opacity duration-1000"
+          style={{
+            opacity: Math.min(1, (scrollY - 600) / 300),
+            pointerEvents: scrollY > 600 ? 'auto' : 'none',
+            zIndex: 5
+          }}
+        />
         <div 
           className="container mx-auto px-6 py-20 ml-[10%]"
           style={{

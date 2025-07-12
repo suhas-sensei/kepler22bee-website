@@ -3,13 +3,13 @@ import React, { useState, useEffect } from "react";
 
 export default function MainHeroSection() {
   return (
-    <div className="bg-gray-600 p-8 max-w-sm rounded-lg shadow-2xl">
+    <div className="bg-gray-600 p-9 max-w-lg rounded-lg shadow-2xl">
       <div className="text-white">
-        <h2 className="text-[px] font-semibold mb-6 font-['Geist_Mono']">
+        <h2 className="text-[30px] font-semibold mb-6 font-['Geist_Mono']">
           Kepler22bee Studios
         </h2>
 
-        <p className="text-sm leading-relaxed text-gray-200">
+        <p className="text-[16px] leading-relaxed text-gray-200">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
           labore accusantium incidunt recusandae, eligendi enim nam
           necessitatibus hic nisi pariatur reprehenderit. Voluptatibus voluptas
@@ -18,7 +18,7 @@ export default function MainHeroSection() {
           voluptatibus.
         </p>
 
-        <p className="text-sm leading-relaxed text-gray-200 mt-4">
+        <p className="text-[16px] leading-relaxed text-gray-200 mt-4">
           Animi repellendus autem tenetur, aut rem quia, magni voluptate dolorum
           fugit quam pariatur mollitia cum
         </p>
