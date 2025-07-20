@@ -10,8 +10,8 @@ const Sketch = dynamic(() => import("react-p5").then((mod) => mod.default), {
 });
 
 const GlowingDots = () => {
-  const dotSpacing = 30;
-  const dotSize = 4;
+  const dotSpacing = 20;
+  const dotSize = 3;
   const dots = useRef<{ x: number; y: number }[]>([]);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [canvasSize, setCanvasSize] = useState({ width: 0, height: 0 });
@@ -44,7 +44,7 @@ const GlowingDots = () => {
   };
 
   const draw = (p5: p5) => {
-    p5.background("#002db3");
+    p5.background("#1a1a1a");
 
     for (const dot of dots.current) {
       const d = p5.dist(p5.mouseX, p5.mouseY, dot.x, dot.y);

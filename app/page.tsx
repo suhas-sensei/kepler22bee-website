@@ -2,7 +2,8 @@ import Navbar from "./components/layout/Navbar";
 import HeroSection from "./components/sections/HeroSection";
 import Data from "./components/sections/Data";
 import GameGrid from "./components/sections/Game";
-import Waitlist from "./components/sections/Waitlist"; // Renamed for clarity
+import Waitlist from "./components/sections/Waitlist";
+import Footer from "./components/layout/Footer";
 
 export default function Home() {
   return (
@@ -12,10 +13,10 @@ export default function Home() {
       <Data />
       <GameGrid />
 
-      {/* 🔽 GlowingDots only inside this scroll-visible section */}
       <section className="relative w-full h-[600px] overflow-hidden">
         <Waitlist />
       </section>
+      <Footer />
     </div>
   );
 }
