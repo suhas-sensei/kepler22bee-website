@@ -4,8 +4,8 @@ export default function Navbar() {
       <div className="flex items-center font-['Geist_Mono'] h-20">
         {/* Logo */}
         <div className="flex-1 px-8">
-          <a href="/" className="text-white text-2xl font-bold">
-            Kepler22bee
+          <a href="/">
+            <img src="/type.svg" alt="Kepler22b Logo" className="h-21" />
           </a>
         </div>
 
@@ -22,7 +22,7 @@ export default function Navbar() {
             >
               <a
                 href="/"
-                className="text-gray-300 text-1xl group-hover:text-black relative z-10"
+                className="text-gray-300 text-[22px] group-hover:text-black relative z-10"
               >
                 Home
               </a>
@@ -40,7 +40,7 @@ export default function Navbar() {
             >
               <a
                 href="/about"
-                className="text-gray-300 text-1xl group-hover:text-black relative z-10"
+                className="text-gray-300 text-[22px] group-hover:text-black relative z-10"
               >
                 About
               </a>
@@ -58,7 +58,7 @@ export default function Navbar() {
             >
               <a
                 href="/whitelist"
-                className="text-gray-300 text-1xl group-hover:text-black relative z-10"
+                className="text-gray-300 text-[22px] group-hover:text-black relative z-10"
               >
                 Whitepaper
               </a>
@@ -75,7 +75,7 @@ export default function Navbar() {
             >
               <a
                 href="/blog"
-                className="text-gray-300 text-1xl group-hover:text-black relative z-10"
+                className="text-gray-300 text-[22px] group-hover:text-black relative z-10"
               >
                 Blog
               </a>
