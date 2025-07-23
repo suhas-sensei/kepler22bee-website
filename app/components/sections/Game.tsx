@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 import { FaDesktop } from "react-icons/fa";
 
 const games = [
@@ -73,7 +74,7 @@ const GameGrid = () => {
                     className={`w-full h-full object-cover ${blurClass}`}
                   />
                 ) : (
-                  <img
+                  <Image
                     src={game.image}
                     alt={game.name}
                     className={`w-full h-full object-cover ${blurClass}`}

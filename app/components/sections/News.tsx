@@ -1,4 +1,5 @@
 import { Newspaper } from "lucide-react";
+import Image from "next/image";
 
 interface NewsCardProps {
   title: string;
@@ -33,7 +34,7 @@ const NewsCard = ({ title, image, category = "NEWS" }: NewsCardProps) => (
 
       {/* Right side - Image */}
       <div className="w-48 h-32 relative flex-shrink-0 overflow-hidden rounded-r-xl">
-        <img
+        <Image
           src={image}
           alt={title}
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"

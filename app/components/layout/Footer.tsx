@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 
 import React from "react";
 import {
@@ -17,7 +18,7 @@ const Footer = () => {
     <footer className="bg-[#0a0a0a] text-white px-8 py-10 text-sm">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border-b border-gray-700 pb-6">
         <div className="flex items-center gap-2">
-          <img src="./k2blogo.png" alt="Kepler Labs" className="h-8" />
+          <Image src="./k2blogo.png" alt="Kepler Labs" className="h-8" />
         </div>
         <nav className="flex flex-wrap gap-4 md:gap-6">
           <a href="#" className="hover:underline font-semibold">

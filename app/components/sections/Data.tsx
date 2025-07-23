@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import Link from "next/link";
 import NewsSection from "./News";
 
 const Data = () => {
@@ -16,7 +15,7 @@ const Data = () => {
         {/* Header */}
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold">
-            What's happening?
+            What`&apos;`s happening?
           </h1>
           <button
             className="mr-2 sm:mr-4 text-xs sm:text-sm font-medium px-3 sm:px-4 py-1.5 sm:py-2 rounded transition-all duration-300 backdrop-blur-lg hover:-translate-y-0.5 hover:shadow-lg relative overflow-hidden group"

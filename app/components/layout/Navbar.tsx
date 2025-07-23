@@ -1,4 +1,6 @@
 "use client";
+import { Link } from "lucide-react";
+import Image from "next/image";
 
 import { useState } from "react";
 
@@ -9,9 +11,13 @@ export default function Navbar() {
     <nav className="fixed top-0 w-full bg-black z-50 font-['Fragment_Mono']">
       <div className="flex items-center justify-between h-20 px-4 lg:px-8">
         {/* Logo */}
-        <a href="/" className="flex-shrink-0">
-          <img src="/type.svg" alt="Kepler22b Logo" className="h-16 sm:h-20" />
-        </a>
+        <Link href="/" className="flex-shrink-0">
+          <Image
+            src="/type.svg"
+            alt="Kepler22b Logo"
+            className="h-16 sm:h-20"
+          />
+        </Link>
 
         {/* Desktop Nav - Centered */}
         <div className="hidden lg:flex flex-1 justify-center h-full items-center mr-[150px] space-x-0">
@@ -29,14 +35,14 @@ export default function Navbar() {
                     "polygon(0 0, calc(100% - 20px) 0, 100% 100%, 20px 100%)",
                 }}
               >
-                <a
+                <Link
                   href={path}
                   className="text-gray-300 text-[18px] group-hover:text-black relative z-10"
                 >
                   {path === "/"
                     ? "Home"
                     : path.replace("/", "").replace("whitelist", "Whitepaper")}
-                </a>
+                </Link>
               </div>
             </div>
           ))}
@@ -52,12 +58,12 @@ export default function Navbar() {
                   "polygon(0 0, calc(100% - 20px) 0, 100% 100%, 20px 100%)",
               }}
             >
-              <a
+              <Link
                 href="/login"
                 className="text-gray-300 group-hover:text-black relative z-10"
               >
                 Login
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -77,21 +83,21 @@ export default function Navbar() {
           className={`lg:hidden bg-black text-white px-6 py-4 space-y-3 
       transition-opacity duration-700 opacity-0 animate-fadein`}
         >
-          <a href="/" className="block text-lg">
+          <Link href="/" className="block text-lg">
             Home
-          </a>
-          <a href="/about" className="block text-lg">
+          </Link>
+          <Link href="/about" className="block text-lg">
             About
-          </a>
-          <a href="/whitelist" className="block text-lg">
+          </Link>
+          <Link href="/whitelist" className="block text-lg">
             Whitepaper
-          </a>
-          <a href="/blog" className="block text-lg">
+          </Link>
+          <Link href="/blog" className="block text-lg">
             Blog
-          </a>
-          <a href="/login" className="block text-lg">
+          </Link>
+          <Link href="/login" className="block text-lg">
             Login
-          </a>
+          </Link>
         </div>
       )}
     </nav>
