@@ -7,35 +7,35 @@ const games = [
     name: "BlockRooms",
     image: "./gametileFinal.png",
     platforms: [<FaDesktop key="d" />],
-    width: "50%",
+    widthClass: "lg:w-[50%]",
     height: "450px",
   },
   {
     name: "[Redacted]",
     image: "./preVid.mp4",
     platforms: [],
-    width: "45%",
+    widthClass: "lg:w-[45%]",
     height: "450px",
   },
   {
     name: "[Redacted]",
     image: "./pre1.jpg",
     platforms: [],
-    width: "30%",
+    widthClass: "lg:w-[30%]",
     height: "280px",
   },
   {
     name: "[Redacted]",
     image: "./pre2.jpg",
     platforms: [],
-    width: "30%",
+    widthClass: "lg:w-[30%]",
     height: "280px",
   },
   {
-    name: "[Redacted]   ",
+    name: "[Redacted]",
     image: "https://source.unsplash.com/600x400/?cardgame,magic",
     platforms: [],
-    width: "30%",
+    widthClass: "lg:w-[30%]",
     height: "280px",
   },
 ];
@@ -52,7 +52,7 @@ const GameGrid = () => {
       <div className="max-w-screen-2xl w-full">
         <h2 className="text-white text-4xl font-bold mb-8">Games</h2>
 
-        <div className="flex flex-wrap gap-8 justify-center">
+        <div className="flex flex-col lg:flex-row flex-wrap gap-8 justify-center items-center">
           {games.map((game, index) => {
             const isVideo = game.image.endsWith(".mp4");
             const blurClass = getBlurClass(index);
@@ -60,11 +60,8 @@ const GameGrid = () => {
             return (
               <div
                 key={index}
-                style={{
-                  width: game.width,
-                  height: game.height,
-                }}
-                className="relative rounded-lg overflow-hidden group border border-transparent transition-all duration-300 hover:border-white hover:border-2 hover:bg-gradient-to-r hover:from-white/30 hover:to-white/10 shadow-xl hover:shadow-white/20"
+                className={`relative w-full ${game.widthClass} rounded-lg overflow-hidden group border border-transparent transition-all duration-300 hover:border-white hover:border-2 hover:bg-gradient-to-r hover:from-white/30 hover:to-white/10 shadow-xl hover:shadow-white/20`}
+                style={{ height: game.height }}
               >
                 {isVideo ? (
                   <video

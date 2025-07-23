@@ -13,7 +13,7 @@ export default function Home() {
       <Data />
       <GameGrid />
 
-      <section className="relative w-full h-[600px] overflow-hidden">
+      <section className="w-full h-[600px] ">
         <Waitlist />
       </section>
       <Footer />

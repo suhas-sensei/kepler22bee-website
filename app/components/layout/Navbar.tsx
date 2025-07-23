@@ -1,93 +1,52 @@
+"use client";
+
+import { useState } from "react";
+
 export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <nav className="fixed top-0 w-full bg-black z-50">
-      <div className="flex items-center font-['Geist_Mono'] h-20">
+    <nav className="fixed top-0 w-full bg-black z-50 font-['Fragment_Mono']">
+      <div className="flex items-center justify-between h-20 px-4 lg:px-8">
         {/* Logo */}
-        <div className="flex-1 px-8">
-          <a href="/">
-            <img src="/type.svg" alt="Kepler22b Logo" className="h-21" />
-          </a>
+        <a href="/" className="flex-shrink-0">
+          <img src="/type.svg" alt="Kepler22b Logo" className="h-16 sm:h-20" />
+        </a>
+
+        {/* Desktop Nav - Centered */}
+        <div className="hidden lg:flex flex-1 justify-center h-full items-center mr-[150px] space-x-0">
+          {["/", "/about", "/whitelist", "/blog"].map((path, i) => (
+            <div
+              key={path}
+              className={`relative h-full flex items-center group ${
+                i !== 0 ? "-ml-5" : ""
+              }`}
+            >
+              <div
+                className="h-full flex items-center px-10 relative transition-all duration-300 group-hover:bg-white"
+                style={{
+                  clipPath:
+                    "polygon(0 0, calc(100% - 20px) 0, 100% 100%, 20px 100%)",
+                }}
+              >
+                <a
+                  href={path}
+                  className="text-gray-300 text-[18px] group-hover:text-black relative z-10"
+                >
+                  {path === "/"
+                    ? "Home"
+                    : path.replace("/", "").replace("whitelist", "Whitepaper")}
+                </a>
+              </div>
+            </div>
+          ))}
         </div>
 
-        {/* Centered Navigation Items with Slanted Separators */}
-        <div className="flex justify-center h-full">
-          {/* Home */}
-          <div className="relative h-full flex items-center group">
-            <div
-              className="h-full flex items-center px-20 relative transition-all duration-300 group-hover:bg-white"
-              style={{
-                clipPath:
-                  "polygon(0 0, calc(100% - 20px) 0, 100% 100%, 20px 100%)",
-              }}
-            >
-              <a
-                href="/"
-                className="text-gray-300 text-[22px] group-hover:text-black relative z-10"
-              >
-                Home
-              </a>
-            </div>
-          </div>
-
-          {/* About */}
+        {/* Login button */}
+        <div className="hidden lg:flex items-center h-full">
           <div className="relative h-full flex items-center group -ml-5">
             <div
-              className="h-full flex items-center px-20 relative transition-all duration-300 group-hover:bg-white"
-              style={{
-                clipPath:
-                  "polygon(0 0, calc(100% - 20px) 0, 100% 100%, 20px 100%)",
-              }}
-            >
-              <a
-                href="/about"
-                className="text-gray-300 text-[22px] group-hover:text-black relative z-10"
-              >
-                About
-              </a>
-            </div>
-          </div>
-
-          {/* Whitepaper */}
-          <div className="relative h-full flex items-center group -ml-5">
-            <div
-              className="h-full flex items-center px-20 relative transition-all duration-300 group-hover:bg-white"
-              style={{
-                clipPath:
-                  "polygon(0 0, calc(100% - 20px) 0, 100% 100%, 20px 100%)",
-              }}
-            >
-              <a
-                href="/whitelist"
-                className="text-gray-300 text-[22px] group-hover:text-black relative z-10"
-              >
-                Whitepaper
-              </a>
-            </div>
-          </div>
-
-          <div className="relative h-full flex items-center group">
-            <div
-              className="h-full flex items-center px-20 relative transition-all duration-300 group-hover:bg-white"
-              style={{
-                clipPath:
-                  "polygon(0 0, calc(100% - 20px) 0, 100% 100%, 20px 100%)",
-              }}
-            >
-              <a
-                href="/blog"
-                className="text-gray-300 text-[22px] group-hover:text-black relative z-10"
-              >
-                Blog
-              </a>
-            </div>
-          </div>
-        </div>
-
-        {/* Login */}
-        <div className="flex-1 flex justify-end h-full">
-          <div className="relative h-full flex items-center group -ml-5">
-            <div
-              className="h-full flex items-center px-8 relative transition-all duration-300 group-hover:bg-white"
+              className="h-full flex items-center px-6 relative transition-all duration-600 group-hover:bg-white"
               style={{
                 clipPath:
                   "polygon(0 0, calc(100% - 20px) 0, 100% 100%, 20px 100%)",
@@ -102,7 +61,39 @@ export default function Navbar() {
             </div>
           </div>
         </div>
+
+        {/* Mobile Hamburger */}
+        <button
+          className="lg:hidden text-white text-2xl focus:outline-none"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          ☰
+        </button>
       </div>
+
+      {/* Mobile Drawer */}
+      {menuOpen && (
+        <div
+          className={`lg:hidden bg-black text-white px-6 py-4 space-y-3 
+      transition-opacity duration-700 opacity-0 animate-fadein`}
+        >
+          <a href="/" className="block text-lg">
+            Home
+          </a>
+          <a href="/about" className="block text-lg">
+            About
+          </a>
+          <a href="/whitelist" className="block text-lg">
+            Whitepaper
+          </a>
+          <a href="/blog" className="block text-lg">
+            Blog
+          </a>
+          <a href="/login" className="block text-lg">
+            Login
+          </a>
+        </div>
+      )}
     </nav>
   );
 }

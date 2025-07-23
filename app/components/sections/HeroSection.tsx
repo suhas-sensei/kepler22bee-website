@@ -24,7 +24,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <div className="w-full h-screen relative overflow-hidden">
+    <div className="relative w-full sm:h-screen h-[60vh] bg-black">
       <video
         ref={videoRef}
         autoPlay
